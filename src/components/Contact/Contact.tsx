@@ -11,18 +11,18 @@ export default function Contact() {
 
       <div className="mx-auto max-w-7xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: false, amount: 0.35 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="mx-auto max-w-2xl text-center"
         >
-          <div className="mx-auto mb-4 h-1 w-12 rounded-full bg-gradient-to-r from-[#FF6B00] to-[#FF8A1F] shadow-[0_0_16px_rgba(255,107,0,0.5)]" />
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+          <div className="mx-auto mb-5 h-1 w-12 rounded-full bg-gradient-to-r from-[#FF6B00] to-[#FF8A1F] shadow-[0_0_16px_rgba(255,107,0,0.5)]" />
+          <h2 className="text-3xl font-bold tracking-[-0.05em] text-white sm:text-4xl lg:text-5xl">
             Get In Touch
           </h2>
           <p className="mt-4 text-sm leading-relaxed text-white/70 sm:text-base lg:text-lg">
-            Ready to grow your business? Let's talk about how we can help you
+            Ready to grow your business? Let&apos;s talk about how we can help you
             achieve your marketing goals.
           </p>
         </motion.div>

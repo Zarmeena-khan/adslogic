@@ -7,18 +7,18 @@ export default function ContactForm() {
     <motion.form
       initial={{ opacity: 0, y: 28 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className="relative rounded-2xl border border-white/[0.08] bg-white/[0.04] p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-md sm:p-10"
+      viewport={{ once: false, amount: 0.3 }}
+      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+      className="group relative overflow-hidden rounded-[28px] border border-[#FF8A1F]/12 bg-[#171717]/90 p-6 shadow-[0_18px_40px_rgba(0,0,0,0.45),0_0_22px_rgba(255,107,0,0.08)] backdrop-blur-xl sm:p-8 lg:p-9"
       onSubmit={(e) => {
         e.preventDefault();
-        // Form submission logic here
       }}
     >
-      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-[#FF6B00]/5 to-transparent opacity-50" />
+      <div className="pointer-events-none absolute inset-0 rounded-[28px] bg-[radial-gradient(circle_at_top_left,_rgba(255,132,55,0.18),transparent_32%),radial-gradient(circle_at_bottom_right,_rgba(255,118,0,0.12),transparent_38%)]" />
+      <div className="pointer-events-none absolute inset-[1px] rounded-[27px] border border-white/5 bg-[linear-gradient(135deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01),rgba(255,107,0,0.06))]" />
+      <div className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-[#FF9D50]/80 to-transparent" />
 
-      <div className="relative space-y-6">
-        {/* Name Input */}
+      <div className="relative space-y-5">
         <div>
           <label htmlFor="name" className="mb-2 block text-sm font-medium text-white/80">
             Name
@@ -28,12 +28,11 @@ export default function ContactForm() {
             id="name"
             name="name"
             required
-            className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 backdrop-blur-sm transition-all duration-300 focus:border-[#FF6B00]/50 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#FF6B00]/20"
+            className="w-full rounded-xl border border-white/10 bg-[#1B1B1B]/90 px-4 py-3.5 text-white placeholder-white/35 backdrop-blur-sm transition-all duration-300 focus:border-[#FF8A1F]/45 focus:bg-[#1F1F1F] focus:outline-none focus:ring-2 focus:ring-[#FF6B00]/20"
             placeholder="Your name"
           />
         </div>
 
-        {/* Email Input */}
         <div>
           <label htmlFor="email" className="mb-2 block text-sm font-medium text-white/80">
             Email
@@ -43,12 +42,11 @@ export default function ContactForm() {
             id="email"
             name="email"
             required
-            className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 backdrop-blur-sm transition-all duration-300 focus:border-[#FF6B00]/50 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#FF6B00]/20"
+            className="w-full rounded-xl border border-white/10 bg-[#1B1B1B]/90 px-4 py-3.5 text-white placeholder-white/35 backdrop-blur-sm transition-all duration-300 focus:border-[#FF8A1F]/45 focus:bg-[#1F1F1F] focus:outline-none focus:ring-2 focus:ring-[#FF6B00]/20"
             placeholder="your@email.com"
           />
         </div>
 
-        {/* Phone Input */}
         <div>
           <label htmlFor="phone" className="mb-2 block text-sm font-medium text-white/80">
             Phone
@@ -57,12 +55,11 @@ export default function ContactForm() {
             type="tel"
             id="phone"
             name="phone"
-            className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 backdrop-blur-sm transition-all duration-300 focus:border-[#FF6B00]/50 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#FF6B00]/20"
+            className="w-full rounded-xl border border-white/10 bg-[#1B1B1B]/90 px-4 py-3.5 text-white placeholder-white/35 backdrop-blur-sm transition-all duration-300 focus:border-[#FF8A1F]/45 focus:bg-[#1F1F1F] focus:outline-none focus:ring-2 focus:ring-[#FF6B00]/20"
             placeholder="+1 (555) 000-0000"
           />
         </div>
 
-        {/* Message Textarea */}
         <div>
           <label htmlFor="message" className="mb-2 block text-sm font-medium text-white/80">
             Message
@@ -72,17 +69,16 @@ export default function ContactForm() {
             name="message"
             required
             rows={5}
-            className="w-full resize-none rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 backdrop-blur-sm transition-all duration-300 focus:border-[#FF6B00]/50 focus:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[#FF6B00]/20"
+            className="w-full resize-none rounded-xl border border-white/10 bg-[#1B1B1B]/90 px-4 py-3.5 text-white placeholder-white/35 backdrop-blur-sm transition-all duration-300 focus:border-[#FF8A1F]/45 focus:bg-[#1F1F1F] focus:outline-none focus:ring-2 focus:ring-[#FF6B00]/20"
             placeholder="Tell us about your project..."
           />
         </div>
 
-        {/* Submit Button */}
         <motion.button
           type="submit"
-          whileHover={{ scale: 1.02 }}
+          whileHover={{ scale: 1.02, y: -1 }}
           whileTap={{ scale: 0.98 }}
-          className="w-full rounded-xl bg-[#FF6B00] px-6 py-4 text-base font-semibold text-white shadow-[0_0_30px_rgba(255,107,0,0.4)] transition-shadow duration-300 hover:shadow-[0_0_40px_rgba(255,107,0,0.6)]"
+          className="w-full rounded-xl bg-gradient-to-r from-[#FF6B00] to-[#FF8A1F] px-6 py-4 text-base font-semibold text-white shadow-[0_0_30px_rgba(255,107,0,0.35)] transition-all duration-300 hover:shadow-[0_0_40px_rgba(255,107,0,0.5)]"
         >
           Send Message
         </motion.button>

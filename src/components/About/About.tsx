@@ -4,19 +4,37 @@ import { motion } from "framer-motion";
 import AboutCard from "./AboutCard";
 import { aboutCards } from "./aboutData";
 
-const headerVariants = {
+const sectionVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+};
+
+const headingVariants = {
   hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    transition: {
+      duration: 0.7,
+      delay: 0.08,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
   },
 };
 
 const gridVariants = {
   hidden: {},
   visible: {
-    transition: { staggerChildren: 0.14, delayChildren: 0.25 },
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.18,
+    },
   },
 };
 
@@ -24,7 +42,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative z-10 min-h-screen px-4 pt-32 pb-24 sm:px-6 sm:pt-40 sm:pb-28 lg:pt-48 lg:pb-32"
+      className="relative z-10 px-4 pb-24 pt-28 sm:px-6 sm:pb-28 sm:pt-36 lg:px-8 lg:pb-32 lg:pt-44"
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#FF6B00]/30 to-transparent" />
 
@@ -32,31 +50,44 @@ export default function About() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
-          variants={headerVariants}
+          viewport={{ once: true, amount: 0.25 }}
+          variants={sectionVariants}
           className="mx-auto max-w-3xl text-center"
         >
-          <div className="mx-auto mb-5 h-1 w-12 rounded-full bg-gradient-to-r from-[#FF6B00] to-[#FF8A1F] shadow-[0_0_16px_rgba(255,107,0,0.5)]" />
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF8A1F]">
-            Who We Are
-          </p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+          <motion.div
+            variants={headingVariants}
+            className="mx-auto mb-6 inline-flex items-center gap-3 rounded-full border border-[#FF8A1F]/20 bg-[#1A120D]/80 px-4 py-2 shadow-[0_0_18px_rgba(255,122,38,0.12)] backdrop-blur-md"
+          >
+            <span className="h-2 w-2 rounded-full bg-[#FF8A1F] shadow-[0_0_14px_rgba(255,138,31,0.9)]" />
+            <span className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[#FFB066]">
+              Who We Are
+            </span>
+          </motion.div>
+
+          <motion.h2
+            variants={headingVariants}
+            className="text-3xl font-semibold tracking-[-0.06em] text-white sm:text-4xl lg:text-5xl"
+          >
             About AdsLogic
-          </h2>
-          <p className="mx-auto mt-6 max-w-[720px] text-base leading-7 text-white/80 sm:text-lg sm:leading-8">
+          </motion.h2>
+
+          <motion.p
+            variants={headingVariants}
+            className="mx-auto mt-5 max-w-2xl text-base leading-8 text-white/72 sm:text-lg"
+          >
             We are a premium AI-powered digital marketing agency specializing in
             data-driven campaigns that deliver exceptional results. Our team
             combines cutting-edge technology with proven marketing strategies to
             help businesses scale efficiently and maximize their ROI.
-          </p>
+          </motion.p>
         </motion.div>
 
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: true, amount: 0.2 }}
           variants={gridVariants}
-          className="mt-16 grid grid-cols-1 gap-6 sm:mt-20 lg:grid-cols-3 lg:gap-7"
+          className="mt-14 grid grid-cols-1 gap-6 sm:mt-16 lg:grid-cols-3 lg:gap-7"
         >
           {aboutCards.map((card, index) => (
             <AboutCard key={card.title} card={card} index={index} />
