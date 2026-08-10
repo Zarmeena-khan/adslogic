@@ -1,0 +1,26 @@
+You are building a premium dark theme website for AdsLogic - an AI-Powered Digital Marketing Agency.
+
+Tech Stack (strictly follow):
+- Next.js 15 (App Router)
+- Tailwind CSS
+- Framer Motion only (no GSAP, no Three.js, no Lenis)
+- Keep code simple and easy to edit later
+
+Design Rules:
+- Dark theme (background #111111 and #1A1A1A)
+- Primary accent color: Orange #FF6B00 and Light Orange #FF8A1F
+- Use glassmorphism effects where suitable
+- Soft orange glowing accents
+- Premium, modern, luxury look
+- Fully responsive
+
+Animation Rules:
+- Always use Framer Motion for animations
+- Prefer spring animations for hover and entrance effects
+- Smooth and subtle micro-interactions
+- No heavy or complicated animations
+
+General:
+- Write clean and readable code
+- Make components easy to edit later
+- Follow the client requirements from the PDF
