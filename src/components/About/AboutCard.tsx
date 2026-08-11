@@ -73,9 +73,14 @@ export default function AboutCard({ card, index }: AboutCardProps) {
   return (
     <motion.article
       variants={cardVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }}
+      initial={{ opacity: 0, x: -80 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: false, amount: 0.3 }}
+      transition={{
+        duration: 0.6,
+        delay: index * 0.15,
+        ease: "easeOut",
+      }}
       whileHover={{
         y: -10,
         scale: 1.01,

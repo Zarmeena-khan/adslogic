@@ -11,13 +11,14 @@ type ProjectCardProps = {
 export default function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <motion.article
-      initial={{ opacity: 0, y: 28 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, x: 80 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: false, amount: 0.3 }}
       exit={{ opacity: 0, scale: 0.95 }}
       transition={{
-        duration: 0.5,
-        delay: index * 0.08,
-        ease: [0.22, 1, 0.36, 1],
+        duration: 0.6,
+        delay: index * 0.15,
+        ease: "easeOut",
       }}
       whileHover={{ scale: 1.03, y: -6 }}
       className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.04] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-md transition-shadow duration-300 hover:border-[#FF6B00]/40 hover:shadow-[0_0_32px_rgba(255,107,0,0.2)]"

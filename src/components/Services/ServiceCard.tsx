@@ -84,6 +84,15 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
   const isOdd = index % 2 === 1;
   const initialRotation = isOdd ? -1.5 : 1.5;
 
+  const serviceHref = {
+    "Meta Ads": "/services/meta-ads",
+    "Google Ads": "/services/google-ads",
+    "Website Development": "/services/website-development",
+    SEO: "/services/seo",
+    "Social Media Marketing": "/services/social-media-marketing",
+    "AI Automation": "/services/ai-automation",
+  }[service.title];
+
   return (
     <motion.article
       initial={{
@@ -149,6 +158,16 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
         <p className="text-base leading-relaxed text-gray-400 transition-colors duration-300 group-hover:text-gray-300">
           {service.description}
         </p>
+
+        <motion.a
+          href={serviceHref}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ type: "spring", stiffness: 350, damping: 20 }}
+          className="mt-7 inline-flex items-center justify-center rounded-full border border-[#FF6B00]/30 bg-[#FF6B00]/10 px-4 py-2.5 text-sm font-semibold text-[#FF8A1F] shadow-[0_0_20px_rgba(255,107,0,0.12)] transition-all duration-300 hover:border-[#FF6B00]/60 hover:bg-[#FF6B00]/15 hover:shadow-[0_0_28px_rgba(255,107,0,0.24)]"
+        >
+          View Details
+        </motion.a>
       </div>
     </motion.article>
   );

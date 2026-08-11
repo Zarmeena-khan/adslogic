@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 export default function ContactForm() {
   return (
     <motion.form
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, x: -80 }}
+      whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: false, amount: 0.3 }}
-      transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className="group relative overflow-hidden rounded-[28px] border border-[#FF8A1F]/12 bg-[#171717]/90 p-6 shadow-[0_18px_40px_rgba(0,0,0,0.45),0_0_22px_rgba(255,107,0,0.08)] backdrop-blur-xl sm:p-8 lg:p-9"
       onSubmit={(e) => {
         e.preventDefault();
