@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   BriefcaseBusiness,
   Camera,
@@ -44,8 +45,19 @@ export default function Footer() {
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="space-y-4"
           >
-            <a href="/" className="inline-block text-2xl font-black tracking-tight text-white">
-              Ads<span className="text-[#FF6B00]">Logic</span>
+            <a
+              href="/"
+              className="inline-flex shrink-0 items-center transition-opacity duration-300 hover:opacity-90"
+            >
+              <span className="relative block h-10 w-[200px] overflow-hidden sm:h-12 sm:w-[250px]">
+                <Image
+                  src="/AdsLogic-Logo.png.png"
+                  alt="AdsLogic"
+                  fill
+                  sizes="(max-width: 640px) 200px, 250px"
+                  className="object-cover object-center"
+                />
+              </span>
             </a>
 
             <p className="max-w-sm text-sm leading-7 text-white/65">

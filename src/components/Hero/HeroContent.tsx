@@ -67,7 +67,7 @@ function HeroContent() {
           </Link>
 
           <motion.a
-            href="https://wa.me/"
+            href="https://wa.me/923103606935"
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{ scale: 1.04 }}

@@ -11,6 +11,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { serviceMenuItems } from "@/components/Services/servicePageData";
 
@@ -86,12 +87,21 @@ export default function Navbar() {
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-[4.5rem] sm:px-6 lg:px-8">
         <motion.a
           href="/#home"
-          className="text-lg font-bold tracking-tight text-white sm:text-xl"
+          className="inline-flex shrink-0 items-center"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
           transition={{ type: "spring", stiffness: 400, damping: 20 }}
         >
-          Ads<span className="text-[#FF6B00]">Logic</span>
+          <span className="relative block h-9 w-[190px] overflow-hidden sm:h-11 sm:w-[230px]">
+            <Image
+              src="/AdsLogic-Logo.png.png"
+              alt="AdsLogic"
+              fill
+              sizes="(max-width: 640px) 190px, 230px"
+              priority
+              className="object-cover object-center"
+            />
+          </span>
         </motion.a>
 
         <div className="hidden items-center gap-8 lg:flex">
