@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Navbar/Navbar";
+import { CONTACT_PAGE_HREF } from "@/lib/contactNavigation";
 import type { ServicePageContent } from "./servicePageData";
 
 const easeCurve = [0.22, 1, 0.36, 1] as const;
@@ -262,7 +263,7 @@ export default function ServicePageLayout({
 
               <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                 <Link
-                  href="#contact"
+                  href={CONTACT_PAGE_HREF}
                   className="inline-flex items-center justify-center rounded-full bg-[#FF6B00] px-6 py-3 text-sm font-semibold text-white shadow-[0_0_24px_rgba(255,107,0,0.3)] transition hover:translate-y-[-1px] hover:shadow-[0_0_28px_rgba(255,107,0,0.45)]"
                 >
                   Let’s grow your business

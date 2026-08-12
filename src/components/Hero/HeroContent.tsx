@@ -1,12 +1,20 @@
 "use client";
 
 import { memo } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
+import { CONTACT_FORM_ID } from "@/lib/contactNavigation";
 
 const entrance = {
   hidden: { opacity: 0, y: 24 },
   visible: { opacity: 1, y: 0 },
 };
+
+function scrollToContactForm() {
+  document
+    .getElementById(CONTACT_FORM_ID)
+    ?.scrollIntoView({ behavior: "smooth", block: "start" });
+}
 
 function HeroContent() {
   return (
@@ -39,15 +47,24 @@ function HeroContent() {
           transition={{ duration: 0.7, delay: 0.4, ease: [0.22, 1, 0.36, 1] as const }}
           className="mt-8 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4"
         >
-          <motion.a
-            href="#consultation"
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
-            transition={{ type: "spring", stiffness: 400, damping: 20 }}
+          <Link
+            href={`#${CONTACT_FORM_ID}`}
+            scroll={false}
+            onClick={(event) => {
+              event.preventDefault();
+              scrollToContactForm();
+            }}
             className="inline-flex h-12 items-center justify-center rounded-full bg-[#FF6B00] px-8 text-sm font-semibold text-white shadow-[0_0_30px_rgba(255,107,0,0.4)] backdrop-blur-sm transition-shadow hover:shadow-[0_0_40px_rgba(255,107,0,0.55)] sm:px-10 sm:text-base"
           >
-            Book Free Consultation
-          </motion.a>
+            <motion.span
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", stiffness: 400, damping: 20 }}
+              className="inline-flex items-center justify-center"
+            >
+              Book Free Consultation
+            </motion.span>
+          </Link>
 
           <motion.a
             href="https://wa.me/"

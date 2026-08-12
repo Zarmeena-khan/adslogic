@@ -3,10 +3,17 @@
 import { motion } from "framer-motion";
 import ContactForm from "./ContactForm";
 import ContactInfo from "./ContactInfo";
+import { useContactScroll } from "./useContactScroll";
+import { CONTACT_FORM_ID } from "@/lib/contactNavigation";
 
 export default function Contact() {
+  useContactScroll();
+
   return (
-    <section id="contact" className="relative min-h-screen px-4 py-20 sm:px-6 sm:py-24 lg:py-28">
+    <section
+      id="contact"
+      className="relative min-h-screen scroll-mt-28 px-4 py-20 sm:px-6 sm:py-24 lg:py-28"
+    >
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#FF6B00]/30 to-transparent" />
 
       <div className="mx-auto max-w-7xl">
@@ -27,7 +34,10 @@ export default function Contact() {
           </p>
         </motion.div>
 
-        <div className="mt-12 grid grid-cols-1 gap-8 sm:mt-16 lg:grid-cols-2 lg:gap-10">
+        <div
+          id={CONTACT_FORM_ID}
+          className="mt-12 grid grid-cols-1 gap-8 scroll-mt-28 sm:mt-16 lg:grid-cols-2 lg:gap-10"
+        >
           <ContactForm />
           <ContactInfo />
         </div>
