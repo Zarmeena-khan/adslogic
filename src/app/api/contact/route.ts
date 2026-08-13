@@ -52,7 +52,7 @@ function getGmailConfig() {
   const gmailUser = process.env.GMAIL_USER?.trim();
   const gmailAppPassword = process.env.GMAIL_APP_PASSWORD?.replace(/\s/g, "");
   const recipientEmail =
-    process.env.CONTACT_RECIPIENT_EMAIL?.trim() || gmailUser;
+    process.env.CONTACT_RECIPIENT_EMAIL?.trim() || "theadslogic@gmail.com";
 
   return { gmailUser, gmailAppPassword, recipientEmail };
 }
