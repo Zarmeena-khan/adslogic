@@ -51,7 +51,7 @@ export default function Footer() {
             >
               <span className="relative block h-10 w-[200px] overflow-hidden sm:h-12 sm:w-[250px]">
                 <Image
-                  src="/AdsLogic-Logo.png.png"
+                  src="/AdsLogic-Logo.png"
                   alt="AdsLogic"
                   fill
                   sizes="(max-width: 640px) 200px, 250px"

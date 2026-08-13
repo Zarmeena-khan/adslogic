@@ -94,7 +94,7 @@ export default function Navbar() {
         >
           <span className="relative block h-9 w-[190px] overflow-hidden sm:h-11 sm:w-[230px]">
             <Image
-              src="/AdsLogic-Logo.png.png"
+              src="/AdsLogic-Logo.png"
               alt="AdsLogic"
               fill
               sizes="(max-width: 640px) 190px, 230px"
