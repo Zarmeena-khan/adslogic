@@ -6,8 +6,8 @@ import { Mail, MapPin, Phone } from "lucide-react";
 const contactDetails = [
   {
     label: "Our Location",
-    value: "Office 123, Behtreen Complex, Karachi",
-    href: "https://maps.google.com/?q=Office+123,+Behtreen+Complex,+Karachi",
+    value: "Office No 419, Bhayani Center, North Nazimabad, Karachi",
+    href: "https://maps.google.com/?q=Office+No+419,+Bhayani+Center,+North+Nazimabad,+Karachi",
     icon: MapPin,
   },
   {

@@ -2,6 +2,28 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  Target,
+  Repeat,
+  BarChart3,
+  FlaskConical,
+  Search,
+  Zap,
+  Smartphone,
+  Palette,
+  Shield,
+  Clock,
+  Folder,
+  TrendingUp,
+  RefreshCw,
+  Gauge,
+  DollarSign,
+  UserCheck,
+  Eye,
+  Heart,
+  Database,
+  Sparkles,
+} from "lucide-react";
 import Footer from "@/components/Footer/Footer";
 import Navbar from "@/components/Navbar/Navbar";
 import { CONTACT_PAGE_HREF } from "@/lib/contactNavigation";
@@ -43,6 +65,65 @@ function SectionHeader({
   );
 }
 
+const getBenefitIcon = (title: string) => {
+  const iconProps = {
+    className: "h-5 w-5 text-[#FF8A1F]",
+  };
+
+  switch (title) {
+    case "Faster Lead Generation":
+      return <Zap {...iconProps} />;
+    case "Stronger Retargeting":
+      return <Repeat {...iconProps} />;
+    case "Clear ROI Visibility":
+      return <BarChart3 {...iconProps} />;
+    case "Creative Testing":
+      return <FlaskConical {...iconProps} />;
+    case "High-Intent Traffic":
+      return <Search {...iconProps} />;
+    case "Better Cost Efficiency":
+      return <TrendingUp {...iconProps} />;
+    case "Faster Lead Capture":
+      return <Zap {...iconProps} />;
+    case "Continuous Improvement":
+      return <RefreshCw {...iconProps} />;
+    case "Brand Elevation":
+      return <Palette {...iconProps} />;
+    case "Higher Conversions":
+      return <TrendingUp {...iconProps} />;
+    case "Mobile-First Experience":
+      return <Smartphone {...iconProps} />;
+    case "Performance Focus":
+      return <Gauge {...iconProps} />;
+    case "Lower Acquisition Costs":
+      return <DollarSign {...iconProps} />;
+    case "Better Search Visibility":
+      return <Search {...iconProps} />;
+    case "More Qualified Leads":
+      return <UserCheck {...iconProps} />;
+    case "Long-Term Growth":
+      return <TrendingUp {...iconProps} />;
+    case "Stronger Brand Recall":
+      return <Eye {...iconProps} />;
+    case "Audience Trust":
+      return <Shield {...iconProps} />;
+    case "More Engagement":
+      return <Heart {...iconProps} />;
+    case "Qualified Demand":
+      return <Target {...iconProps} />;
+    case "More Time Back":
+      return <Clock {...iconProps} />;
+    case "Faster Response Times":
+      return <Zap {...iconProps} />;
+    case "Better Data Flow":
+      return <Database {...iconProps} />;
+    case "Scalable Ops":
+      return <TrendingUp {...iconProps} />;
+    default:
+      return <Target {...iconProps} />;
+  }
+};
+
 export default function ServicePageLayout({
   service,
 }: {
@@ -76,12 +157,12 @@ export default function ServicePageLayout({
                 </p>
 
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                  <Link
-                    href="#contact"
-                    className="inline-flex items-center justify-center rounded-full bg-[#FF6B00] px-6 py-3 text-sm font-semibold text-white shadow-[0_0_24px_rgba(255,107,0,0.3)] transition hover:translate-y-[-1px] hover:shadow-[0_0_28px_rgba(255,107,0,0.45)]"
-                  >
-                    Book a strategy call
-                  </Link>
+<Link
+                  href="/contact#contact-form"
+                  className="inline-flex items-center justify-center rounded-full bg-[#FF6B00] px-6 py-3 text-sm font-semibold text-white shadow-[0_0_24px_rgba(255,107,0,0.3)] transition hover:translate-y-[-1px] hover:shadow-[0_0_28px_rgba(255,107,0,0.45)]"
+                    >
+                      Book a strategy call
+                    </Link>
                   <a
                     href="https://wa.me/923103606935?text=Hi%20AdsLogic%2C%20I%20want%20to%20talk%20about%20growth."
                     target="_blank"
@@ -199,20 +280,22 @@ export default function ServicePageLayout({
             </motion.div>
 
             <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-              {service.benefits.map((benefit, index) => (
-                <motion.div
-                  key={benefit.title}
-                  initial={{ opacity: 0, y: 25 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.45, delay: index * 0.08 }}
-                  className="rounded-[1.75rem] border border-white/[0.06] bg-white/[0.02] p-6 backdrop-blur-md"
-                >
-                  <div className="mb-4 h-10 w-10 rounded-xl bg-gradient-to-br from-[#FF6B00]/20 to-[#FF8A1F]/10 ring-1 ring-[#FF6B00]/30" />
-                  <h3 className="text-lg font-semibold text-white">{benefit.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-white/60">{benefit.description}</p>
-                </motion.div>
-              ))}
+{service.benefits.map((benefit, index) => (
+                 <motion.div
+                   key={benefit.title}
+                   initial={{ opacity: 0, y: 25 }}
+                   whileInView={{ opacity: 1, y: 0 }}
+                   viewport={{ once: true, margin: "-80px" }}
+                   transition={{ duration: 0.45, delay: index * 0.08 }}
+                   className="rounded-[1.75rem] border border-white/[0.06] bg-white/[0.02] p-6 backdrop-blur-md"
+                 >
+                   <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#FF6B00]/20 to-[#FF8A1F]/10 ring-1 ring-[#FF6B00]/30">
+                     {getBenefitIcon(benefit.title)}
+                   </div>
+                   <h3 className="text-lg font-semibold text-white">{benefit.title}</h3>
+                   <p className="mt-3 text-sm leading-6 text-white/60">{benefit.description}</p>
+                 </motion.div>
+               ))}
             </div>
           </div>
         </section>

@@ -16,13 +16,13 @@ const quickLinks = [
   { name: "Services", href: "/services" },
   { name: "About", href: "/#about" },
   { name: "Portfolio", href: "/portfolio" },
-  { name: "Contact", href: "/#contact" },
+  { name: "Contact", href: "/contact#contact-form" },
 ];
 
 const contactDetails = [
   { label: "+92 310 3606935", href: "tel:+923103606935", icon: Phone },
   { label: "theadslogic@gmail.com", href: "mailto:theadslogic@gmail.com", icon: Mail },
-  { label: "Office 123, Behtreen Complex, Karachi", href: "https://maps.google.com/?q=Office+123,+Behtreen+Complex,+Karachi", icon: MapPin },
+  { label: "Office No 419, Bhayani Center, North Nazimabad, Karachi", href: "https://maps.google.com/?q=Office+No+419,+Bhayani+Center,+North+Nazimabad,+Karachi", icon: MapPin },
 ];
 
 const socialLinks = [
@@ -51,7 +51,7 @@ export default function Footer() {
             >
               <span className="relative block h-10 w-[200px] overflow-hidden sm:h-12 sm:w-[250px]">
                 <Image
-                  src="/AdsLogic-Logo.png"
+                  src="/footer-Logo.png"
                   alt="AdsLogic"
                   fill
                   sizes="(max-width: 640px) 200px, 250px"
@@ -61,14 +61,13 @@ export default function Footer() {
             </a>
 
             <p className="max-w-sm text-sm leading-7 text-white/65">
-              Performance-focused digital marketing solutions designed to help brands grow with clarity,
-              consistency, and measurable results.
+            AI-powered digital marketing solutions to help businesses grow with Meta Ads, Google Ads, Websites, SEO & AI Automation.
             </p>
 
-            <div className="flex items-center gap-2 text-sm text-white/75">
+            {/* <div className="flex items-center gap-2 text-sm text-white/75">
               <span className="h-2.5 w-2.5 rounded-full bg-[#FF6B00] shadow-[0_0_14px_rgba(255,107,0,0.75)]" />
               <span>Owner: Mohsin Javed</span>
-            </div>
+            </div> */}
           </motion.div>
 
           <motion.div
@@ -118,7 +117,7 @@ export default function Footer() {
                     <span className="mt-0.5 flex h-9 w-9 items-center justify-center rounded-full border border-[#FF6B00]/30 bg-[#FF6B00]/5 text-[#FF6B00] shadow-[0_0_18px_rgba(255,107,0,0.12)] transition-all duration-300 group-hover:border-[#FF6B00]/60 group-hover:bg-[#FF6B00]/10">
                       <Icon className="h-4 w-4" />
                     </span>
-                    <span className="leading-6">{label}</span>
+                    <span className="leading-6 w-full break-words">{label}</span>
                   </a>
                 </li>
               ))}
@@ -170,7 +169,7 @@ export default function Footer() {
           className="mt-12 border-t border-white/10 pt-6"
         >
           <p className="text-center text-sm text-white/45">
-            © 2025 AdsLogic. All rights reserved.
+            © 2026 AdsLogic. All rights reserved.
           </p>
         </motion.div>
       </div>

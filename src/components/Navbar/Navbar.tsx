@@ -19,7 +19,7 @@ const navItems = [
   { label: "Home", href: "/#home" },
   { label: "About", href: "/#about" },
   { label: "Portfolio", href: "/portfolio" },
-  { label: "Contact", href: "/#contact" },
+  { label: "Contact", href: "/contact#contact-form" },
 ];
 
 const serviceIcons: Record<string, typeof Search> = {
@@ -93,14 +93,14 @@ export default function Navbar() {
           transition={{ type: "spring", stiffness: 400, damping: 20 }}
         >
           <span className="relative block h-9 w-[190px] overflow-hidden sm:h-11 sm:w-[230px]">
-            <Image
-              src="/AdsLogic-Logo.png"
-              alt="AdsLogic"
-              fill
-              sizes="(max-width: 640px) 190px, 230px"
-              priority
-              className="object-cover object-center"
-            />
+<Image
+          src="/footer-Logo.png"
+          alt="AdsLogic"
+          fill
+          sizes="(max-width: 640px) 190px, 230px"
+          priority
+          className="object-cover object-center"
+        />
           </span>
         </motion.a>
 
@@ -182,12 +182,12 @@ export default function Navbar() {
 
           <NavLink href="/#about" label="About" active={pathname === "/" || pathname === "/#about"} />
           <NavLink href="/portfolio" label="Portfolio" active={pathname === "/portfolio"} />
-          <NavLink href="/#contact" label="Contact" active={pathname === "/" || pathname === "/#contact"} />
+          <NavLink href="/contact#contact-form" label="Contact" active={pathname === "/" || pathname === "/contact#contact-form"} />
         </div>
 
         <div className="hidden lg:block">
           <motion.a
-            href="/#contact"
+            href="/contact#contact-form"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", stiffness: 400, damping: 20 }}
@@ -309,7 +309,7 @@ export default function Navbar() {
               </motion.div>
 
               <motion.a
-                href="/#contact"
+href="/contact#contact-form"
                 onClick={closeMenu}
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
