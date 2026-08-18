@@ -16,11 +16,11 @@ import { useEffect, useState } from "react";
 import { serviceMenuItems } from "@/components/Services/servicePageData";
 
 const navItems = [
-  { label: "Home", href: "/#home" },
-  { label: "About", href: "/#about" },
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Contact", href: "/contact#contact-form" },
-];
+    { label: "Home", href: "/#home" },
+    { label: "About", href: "/#about" },
+   // { { label: "Portfolio", href: "/portfolio" } } // HIDDEN
+    { label: "Contact", href: "/contact#contact-form" },
+  ];
 
 const serviceIcons: Record<string, typeof Search> = {
   meta: Megaphone,
@@ -68,14 +68,30 @@ export default function Navbar() {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [hash, setHash] = useState("");
 
   useEffect(() => {
     setMenuOpen(false);
     setServicesOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    const updateHash = () => setHash(window.location.hash);
+    updateHash();
+    window.addEventListener("hashchange", updateHash);
+    return () => window.removeEventListener("hashchange", updateHash);
+  }, []);
+
   const closeMenu = () => setMenuOpen(false);
   const isServicesActive = pathname.startsWith("/services");
+
+  const isLinkActive = (href: string) => {
+    if (href === "/#home") return pathname === "/" && (!hash || hash === "#home");
+    if (href === "/#about") return pathname === "/" && hash === "#about";
+    if (href === "/contact#contact-form") return pathname === "/contact";
+    if (href === "/portfolio") return pathname === "/portfolio";
+    return pathname === href;
+  };
 
   return (
     <motion.header
@@ -105,7 +121,7 @@ export default function Navbar() {
         </motion.a>
 
         <div className="hidden items-center gap-8 lg:flex">
-          <NavLink href="/#home" label="Home" active={pathname === "/" || pathname === "/#home"} />
+          <NavLink href="/#home" label="Home" active={isLinkActive("/#home")} />
 
           <div
             className="relative"
@@ -180,9 +196,9 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          <NavLink href="/#about" label="About" active={pathname === "/" || pathname === "/#about"} />
-          <NavLink href="/portfolio" label="Portfolio" active={pathname === "/portfolio"} />
-          <NavLink href="/contact#contact-form" label="Contact" active={pathname === "/" || pathname === "/contact#contact-form"} />
+          <NavLink href="/#about" label="About" active={isLinkActive("/#about")} />
+          {/* <NavLink href="/portfolio" label="Portfolio" active={pathname === "/portfolio"} /> */}
+          <NavLink href="/contact#contact-form" label="Contact" active={isLinkActive("/contact#contact-form")} />
         </div>
 
         <div className="hidden lg:block">
@@ -242,7 +258,7 @@ export default function Navbar() {
                     href={item.href}
                     label={item.label}
                     onClick={closeMenu}
-                    active={item.href === pathname || (item.href === "/#home" && pathname === "/") || (item.href === "/portfolio" && pathname === "/portfolio")}
+                    active={isLinkActive(item.href)}
                   />
                 </motion.div>
               ))}

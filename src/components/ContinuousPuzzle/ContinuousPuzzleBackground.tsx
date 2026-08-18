@@ -48,7 +48,7 @@ export default function ContinuousPuzzleBackground({
 
   return (
     <div className="relative">
-      <div className="fixed top-0 left-0 z-0 h-screen w-screen overflow-hidden">
+      <div className="fixed top-0 left-0 z-0 h-screen w-full overflow-hidden">
         {firstFrameReady && !isReady && (
           <div className="absolute inset-0">
             <Image
