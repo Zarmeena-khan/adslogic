@@ -1,10 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #111111;
-  --foreground: #ededed;
+  --background: #fff6ef;
+  --foreground: #111111;
   --accent: #ff6b00;
   --accent-light: #ff8a1f;
+  --card-from: #ffffff;
+  --card-to: #fff4ea;
 }
 
 @theme inline {
@@ -17,7 +19,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   overflow-x: hidden;
 }
 
@@ -29,13 +31,34 @@ body {
   max-width: 100%;
 }
 
+*,
+*::before,
+*::after {
+  animation: none !important;
+  transition: none !important;
+}
+
 .contact-field:-webkit-autofill,
 .contact-field:-webkit-autofill:hover,
 .contact-field:-webkit-autofill:focus,
 .contact-field:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0 1000px #1b1b1b inset !important;
-  box-shadow: 0 0 0 1000px #1b1b1b inset !important;
-  -webkit-text-fill-color: #ffffff !important;
-  caret-color: #ffffff;
-  transition: background-color 9999s ease-in-out 0s;
+  -webkit-box-shadow: 0 0 0 1000px #fff8f2 inset !important;
+  box-shadow: 0 0 0 1000px #fff8f2 inset !important;
+  -webkit-text-fill-color: #111111 !important;
+  caret-color: #111111;
+}
+
+@layer components {
+  .ui-card {
+    background: linear-gradient(160deg, var(--card-from) 0%, var(--card-to) 100%);
+    border-color: rgba(255, 107, 0, 0.28);
+    box-shadow:
+      0 14px 36px rgba(255, 107, 0, 0.12),
+      0 2px 8px rgba(17, 17, 17, 0.06);
+  }
+
+  .ui-card-inner {
+    background: #ffffff;
+    border-color: rgba(255, 107, 0, 0.2);
+  }
 }

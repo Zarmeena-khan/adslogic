@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import type { Service } from "./servicesData";
 
 type ServiceCardProps = {
@@ -8,7 +5,6 @@ type ServiceCardProps = {
   index: number;
 };
 
-// Custom SVG Icons for each service
 const getServiceIcon = (title: string) => {
   const iconProps = {
     className: "w-8 h-8",
@@ -79,11 +75,7 @@ const getServiceIcon = (title: string) => {
   }
 };
 
-export default function ServiceCard({ service, index }: ServiceCardProps) {
-  // Alternating rotation: odd cards rotate left, even cards rotate right
-  const isOdd = index % 2 === 1;
-  const initialRotation = isOdd ? -1.5 : 1.5;
-
+export default function ServiceCard({ service }: ServiceCardProps) {
   const serviceHref = {
     "Meta Ads": "/services/meta-ads",
     "Google Ads": "/services/google-ads",
@@ -94,81 +86,41 @@ export default function ServiceCard({ service, index }: ServiceCardProps) {
   }[service.title];
 
   return (
-    <motion.article
-      initial={{
-        opacity: 0,
-        y: 30,
-        rotate: initialRotation
-      }}
-      whileInView={{
-        opacity: 1,
-        y: 0,
-        rotate: initialRotation
-      }}
-      viewport={{ once: false, amount: 0.3 }}
-      transition={{
-        duration: 0.6,
-        delay: index * 0.1,
-        ease: [0.22, 1, 0.36, 1],
-      }}
-      whileHover={{
-        y: -10,
-        rotate: 0,
-        transition: {
-          type: "spring",
-          stiffness: 300,
-          damping: 20
-        }
-      }}
-      className="group relative overflow-hidden rounded-3xl border border-white/[0.06] bg-gradient-to-br from-[#1A1A1A] to-[#111111] p-8 shadow-[0_10px_30px_rgba(0,0,0,0.5)] backdrop-blur-md transition-all duration-500 hover:border-[#FF6B00]/40 hover:shadow-[0_10px_40px_rgba(0,0,0,0.6),0_0_40px_rgba(255,107,0,0.25)] sm:p-9 lg:p-10"
-    >
-      {/* Glowing orange border that intensifies on hover */}
-      <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 shadow-[inset_0_0_0_1px_rgba(255,107,0,0.3),0_0_20px_rgba(255,107,0,0.2)] transition-opacity duration-500 group-hover:opacity-100" />
-
-      {/* Content wrapper */}
+    <article className="ui-card group relative overflow-hidden rounded-3xl border p-8 hover:border-[#FF6B00]/60 sm:p-9 lg:p-10">
+      <div className="pointer-events-none absolute -right-8 -top-8 h-32 w-32 rounded-full bg-[#FF6B00]/18 blur-2xl" />
       <div className="relative">
-        {/* Large Icon Container (72px) with radial glow */}
         <div className="relative mb-8 inline-block">
-          {/* Soft orange radial glow behind icon (blurred) */}
-          <div className="absolute inset-0 -z-10 scale-150 rounded-full bg-gradient-radial from-[#FF6B00]/30 via-[#FF6B00]/10 to-transparent opacity-60 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
-
-          {/* Icon container - 72px with gradient border */}
           <div
-            className="relative flex h-[72px] w-[72px] items-center justify-center rounded-2xl bg-gradient-to-br from-[#1A1A1A] to-[#0A0A0A] text-white transition-all duration-500 group-hover:text-[#FF8A1F]"
+            className="relative flex h-[72px] w-[72px] items-center justify-center rounded-2xl text-[#FF6B00] group-hover:text-[#FF8A1F]"
             style={{
-              border: '1px solid transparent',
-              backgroundImage: 'linear-gradient(to bottom right, #1A1A1A, #0A0A0A), linear-gradient(135deg, #FF6B00, #FF8A1F)',
-              backgroundOrigin: 'border-box',
-              backgroundClip: 'padding-box, border-box',
+              border: "1px solid transparent",
+              backgroundImage:
+                "linear-gradient(to bottom right, #FFFFFF, #FFF3E8), linear-gradient(135deg, #FF6B00, #FF8A1F)",
+              backgroundOrigin: "border-box",
+              backgroundClip: "padding-box, border-box",
             }}
           >
             {getServiceIcon(service.title)}
           </div>
         </div>
 
-        {/* Orange gradient bar ABOVE title (3px × 40px) */}
-        <div className="mb-3 h-[3px] w-[40px] rounded-full bg-gradient-to-r from-[#FF6B00] to-[#FF8A1F] shadow-[0_0_10px_rgba(255,107,0,0.5)] transition-all duration-500 group-hover:w-[60px] group-hover:shadow-[0_0_20px_rgba(255,107,0,0.8)]" />
+        <div className="mb-3 h-[3px] w-[40px] rounded-full bg-gradient-to-r from-[#FF6B00] to-[#FF8A1F]" />
 
-        {/* Title - bold text-2xl */}
-        <h3 className="mb-4 text-2xl font-bold tracking-tight text-white transition-colors duration-300 group-hover:text-[#FF8A1F]">
+        <h3 className="mb-4 text-2xl font-bold tracking-tight text-[#111111] group-hover:text-[#FF8A1F]">
           {service.title}
         </h3>
 
-        {/* Description */}
-        <p className="text-base leading-relaxed text-gray-400 transition-colors duration-300 group-hover:text-gray-300">
+        <p className="text-base leading-relaxed text-neutral-600">
           {service.description}
         </p>
 
-        <motion.a
+        <a
           href={serviceHref}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          transition={{ type: "spring", stiffness: 350, damping: 20 }}
-          className="mt-7 inline-flex items-center justify-center rounded-full border border-[#FF6B00]/30 bg-[#FF6B00]/10 px-4 py-2.5 text-sm font-semibold text-[#FF8A1F] shadow-[0_0_20px_rgba(255,107,0,0.12)] transition-all duration-300 hover:border-[#FF6B00]/60 hover:bg-[#FF6B00]/15 hover:shadow-[0_0_28px_rgba(255,107,0,0.24)]"
+          className="mt-7 inline-flex items-center justify-center rounded-full border border-[#FF6B00]/30 bg-[#FF6B00]/10 px-4 py-2.5 text-sm font-semibold text-[#FF6B00] hover:border-[#FF6B00]/60 hover:bg-[#FF6B00]/15"
         >
           View Details
-        </motion.a>
+        </a>
       </div>
-    </motion.article>
+    </article>
   );
 }

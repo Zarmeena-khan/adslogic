@@ -15,7 +15,7 @@ function scrollToContactTarget() {
     document.getElementById(CONTACT_FORM_ID) ??
     document.getElementById(CONTACT_SECTION_ID);
 
-  target?.scrollIntoView({ behavior: "smooth", block: "start" });
+  target?.scrollIntoView({ behavior: "auto", block: "start" });
 }
 
 export function useContactScroll() {

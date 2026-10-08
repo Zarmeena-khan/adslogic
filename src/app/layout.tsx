@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "AdsLogic | AI-Powered Marketing Solutions",
   description:
     "Meta Ads, Google Ads, Websites, SEO, and AI Automation for growth-focused brands.",
+  icons: {
+    icon: "/AdsLogic-Logo.png",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

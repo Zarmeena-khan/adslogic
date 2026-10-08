@@ -7,26 +7,20 @@ import Portfolio from "@/components/Portfolio/Portfolio";
 import Testimonials from "@/components/Testimonials/Testimonials";
 import Contact from "@/components/Contact/Contact";
 import Footer from "@/components/Footer/Footer";
-import ContinuousPuzzleBackground from "@/components/ContinuousPuzzle/ContinuousPuzzleBackground";
 
 export default function Home() {
   return (
-    <main className="bg-[#111111]">
+    <main className="bg-[#FFF6EF]">
       <Navbar />
-      <ContinuousPuzzleBackground
-        hero={
-          <div id="home">
-            <HeroSection />
-          </div>
-        }
-        services={<Services />}
-        about={<About />}
-      >
-        <Statistics />
-        <Portfolio />
-        <Testimonials />
-        <Contact />
-      </ContinuousPuzzleBackground>
+      <div id="home">
+        <HeroSection />
+      </div>
+      <Services />
+      <About />
+      <Statistics />
+      <Portfolio />
+      <Testimonials />
+      <Contact />
       <Footer />
     </main>
   );
